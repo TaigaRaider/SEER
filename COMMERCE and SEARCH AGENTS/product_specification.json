@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "MERCEDES",
+    "Model": "C300",
+    "Engine_type": "V8 Bi-turbo",
+    "Manufacturing Year": "2024",
+    "Condition": "New"
+  },
+  {
+    "Name": "MERCEDES",
+    "Model": "GL450",
+    "Engine_type": "V6",
+    "Manufacturing Year": "2016",
+    "Condition": "Used"
+  },
+  {
+    "Name": "MERCEDES",
+    "Model": "GLE63s",
+    "Engine_type": "V8 Bi-turbo",
+    "Manufacturing Year": "2020",
+    "Condition": "New"
+  },
+  {
+    "Name": "MERCEDES",
+    "Model": "GLE63",
+    "Engine_type": "V8",
+    "Manufacturing Year": "2019",
+    "Condition": "Used"
+  },
+  {
+    "Name": "MERCEDES",
+    "Model": "C350",
+    "Engine_type": "V6",
+    "Manufacturing Year": "2011",
+    "Condition": "Used"
+  }
+]
