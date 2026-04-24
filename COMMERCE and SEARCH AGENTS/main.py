@@ -1,5 +1,3 @@
-import json
-
 from rich.prompt import Prompt
 
 sources = ("CARS/car.txt", "BEAUTY/beauty.txt", "FASHION/fashion.txt", "GROCERIES/groceries.txt")
@@ -10,6 +8,8 @@ product_prompt = Prompt.ask('What do you seek? ').upper().strip().rsplit(sep=" "
 product_name = product_prompt[1]
 
 item_found: bool = False
+
+
 def checkAvailability(item, inventory_dict):
     is_present: bool = False
     if item in inventory_dict:
@@ -22,8 +22,9 @@ def checkAvailability(item, inventory_dict):
 def furtherProductSpecification():
     Prompt.ask("Would you like to see available Options (yes or no)? ")
 
+
 def locateItem(item, inventory_list=sources):
-    completion_message: str = ""
+    itemlocation: str = ""
     for i in range(len(inventory_list)):
         try:
             with open(inventory_list[i], "r") as file:
@@ -31,13 +32,14 @@ def locateItem(item, inventory_list=sources):
                     pass
                 else:
                     print("The Item has been found")
-                    completion_message = f"The {item} was found in {inventory_list[i]}"
+                    itemlocation = f"The {item} was found in {inventory_list[i]}"
                     break
 
         except FileNotFoundError:
             print("File does not Exist")
         except PermissionError:
             print("You do not have permission to read this file")
+
 
 #    try:
 #         with open("product_specification.json", "r") as file:
