@@ -1,35 +1,35 @@
 [
   {
-    "Name": "MERCEDES",
-    "Model": "C300",
+    "Name": "MASERATI",
+    "Model": "X-TYPE",
     "Engine_type": "V8 Bi-turbo",
     "Manufacturing Year": "2024",
     "Condition": "New"
   },
   {
-    "Name": "MERCEDES",
+    "Name": "MERCEDES-BENZ",
     "Model": "GL450",
     "Engine_type": "V6",
-    "Manufacturing Year": "2016",
+    "Manufacturing Year": "2015",
     "Condition": "Used"
   },
   {
-    "Name": "MERCEDES",
-    "Model": "GLE63s",
-    "Engine_type": "V8 Bi-turbo",
+    "Name": "TESLA",
+    "Model": "Y",
+    "Engine_type": "Electric PowerTrain",
     "Manufacturing Year": "2020",
     "Condition": "New"
   },
   {
-    "Name": "MERCEDES",
-    "Model": "GLE63",
+    "Name": "BMW",
+    "Model": "X5M",
     "Engine_type": "V8",
     "Manufacturing Year": "2019",
     "Condition": "Used"
   },
   {
-    "Name": "MERCEDES",
-    "Model": "C350",
+    "Name": "TOYOTA",
+    "Model": "CAMRY",
     "Engine_type": "V6",
     "Manufacturing Year": "2011",
     "Condition": "Used"

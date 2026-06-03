@@ -1,38 +1,52 @@
+import json
 from rich.prompt import Prompt
 
 sources = ("CARS/car.txt", "BEAUTY/beauty.txt", "FASHION/fashion.txt", "GROCERIES/groceries.txt")
 INVENTORY__FILE = "inventory.txt"
 PRODUCT_FILE = "product_specification.json"
 
-product_prompt = Prompt.ask('What do you seek? ').upper().strip().rsplit(sep=" ")
-product_name = product_prompt[1]
+product_prompt = Prompt.ask('What do you seek? ').upper().strip().split(sep=" ")
+# product_name = product_prompt[1]
 
-item_found: bool = False
+options = []
+
+for i in product_prompt:
+    with open(PRODUCT_FILE, "r") as file:
+        products: list = json.load(file)
+
+    for item in products:
+        if i in item.values():
+            options.append(item)
+
+        else:
+            products.pop(products.index(item))
+
+print(options)
 
 
-def checkAvailability(item, inventory_dict):
-    is_present: bool = False
-    if item in inventory_dict:
-        is_present = True
-        return is_present
-    else:
-        return f"Error 404: could not be found"
-
-
-def furtherProductSpecification():
-    Prompt.ask("Would you like to see available Options (yes or no)? ")
-
-
+# def checkAvailability(item, inventory_dict):
+#     is_present: bool = False
+#     if item in inventory_dict:
+#         is_present = True
+#         return is_present
+#     else:
+#         return f"Error 404: could not be found"
+#
+#
+# def furtherProductSpecification():
+#     Prompt.ask("Would you like to see available Options (yes or no)? ")
+#
+#
 def locateItem(item, inventory_list=sources):
     itemlocation: str = ""
+    item: bool
     for i in range(len(inventory_list)):
         try:
             with open(inventory_list[i], "r") as file:
                 if item not in file:
-                    pass
+                    itemlocation: bool = False
                 else:
-                    print("The Item has been found")
-                    itemlocation = f"The {item} was found in {inventory_list[i]}"
+                    itemlocation = inventory_list[i]
                     break
 
         except FileNotFoundError:
@@ -40,28 +54,4 @@ def locateItem(item, inventory_list=sources):
         except PermissionError:
             print("You do not have permission to read this file")
 
-
-#    try:
-#         with open("product_specification.json", "r") as file:
-#             json.load(file)
-#             if item not in file:
-#                 pass
-#             else:
-#                 completion_message = f"The {item} was found in {file}"
-#
-#     except FileNotFoundError:
-#         print("File does not Exist")
-#     except PermissionError:
-#         print("You do not have permission to read this file")
-#     return completion_message
-
-def fetchInventory():
-    with open(INVENTORY__FILE, "r") as file:
-        available_items = {}
-        for item in file:
-            indexed_item, available_units = item.strip().split(",")
-            available_items[indexed_item] = available_units
-    return available_items
-
-
-print(locateItem(product_name))
+    return itemlocation
